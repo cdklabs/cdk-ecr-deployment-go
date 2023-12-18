@@ -1,4 +1,4 @@
-module github.com/cdklabs/cdk-ecr-deployment-go/cdkecrdeployment/v2
+module github.com/cdklabs/cdk-ecr-deployment-go/cdkecrdeployment/v3
 
 go 1.18
 
