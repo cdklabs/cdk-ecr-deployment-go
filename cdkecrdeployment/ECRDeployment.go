@@ -61,6 +61,22 @@ func NewECRDeployment_Override(e ECRDeployment, scope constructs.Construct, id *
 	)
 }
 
+// Creates a new root construct node.
+func ECRDeployment_CreateRoot(id *string) constructs.Construct {
+	_init_.Initialize()
+
+	var returns constructs.Construct
+
+	_jsii_.StaticInvoke(
+		"cdk-ecr-deployment.ECRDeployment",
+		"createRoot",
+		[]interface{}{id},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
