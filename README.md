@@ -1,17 +1,4 @@
-## My Project
+# cdk-ecr-deployment-go
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This project is licensed under the Apache-2.0 License.
+Go bindings for [cdk-ecr-deployment](https://github.com/cdklabs/cdk-ecr-deployment-go)
 
