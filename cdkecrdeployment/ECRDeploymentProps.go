@@ -21,6 +21,16 @@ type ECRDeploymentProps struct {
 	BuildImage *string `field:"optional" json:"buildImage" yaml:"buildImage"`
 	// The environment variable to set.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// The image architecture to be copied.
+	//
+	// The 'amd64' architecture will be copied by default. Specify the
+	// architecture or architectures to copy here.
+	//
+	// It is currently not possible to copy more than one architecture
+	// at a time: the array you specify must contain exactly one string.
+	// Default: ['amd64'].
+	//
+	ImageArch *[]*string `field:"optional" json:"imageArch" yaml:"imageArch"`
 	// The name of the lambda handler.
 	// Default: - bootstrap.
 	//
