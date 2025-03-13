@@ -2,7 +2,7 @@ package cdkecrdeployment
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/cdklabs/cdk-ecr-deployment-go/cdkecrdeployment/v3/jsii"
+	_init_ "github.com/cdklabs/cdk-ecr-deployment-go/cdkecrdeployment/v4/jsii"
 )
 
 type DockerImageName interface {

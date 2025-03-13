@@ -3,7 +3,6 @@ package cdkecrdeployment
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 type ECRDeploymentProps struct {
@@ -11,16 +10,6 @@ type ECRDeploymentProps struct {
 	Dest IImageName `field:"required" json:"dest" yaml:"dest"`
 	// The source of the docker image.
 	Src IImageName `field:"required" json:"src" yaml:"src"`
-	// Image to use to build Golang lambda for custom resource, if download fails or is not wanted.
-	//
-	// Might be needed for local build if all images need to come from own registry.
-	//
-	// Note that image should use yum as a package manager and have golang available.
-	// Default: - public.ecr.aws/sam/build-go1.x:latest
-	//
-	BuildImage *string `field:"optional" json:"buildImage" yaml:"buildImage"`
-	// The environment variable to set.
-	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The image architecture to be copied.
 	//
 	// The 'amd64' architecture will be copied by default. Specify the
@@ -31,14 +20,6 @@ type ECRDeploymentProps struct {
 	// Default: ['amd64'].
 	//
 	ImageArch *[]*string `field:"optional" json:"imageArch" yaml:"imageArch"`
-	// The name of the lambda handler.
-	// Default: - bootstrap.
-	//
-	LambdaHandler *string `field:"optional" json:"lambdaHandler" yaml:"lambdaHandler"`
-	// The lambda function runtime environment.
-	// Default: - lambda.Runtime.PROVIDED_AL2023
-	//
-	LambdaRuntime awslambda.Runtime `field:"optional" json:"lambdaRuntime" yaml:"lambdaRuntime"`
 	// The amount of memory (in MiB) to allocate to the AWS Lambda function which replicates the files from the CDK bucket to the destination bucket.
 	//
 	// If you are deploying large files, you will need to increase this number
