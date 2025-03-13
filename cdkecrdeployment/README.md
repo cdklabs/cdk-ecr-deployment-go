@@ -54,9 +54,13 @@ ecrdeploy.NewECRDeployment(this, jsii.String("DeployDockerImage2"), &ECRDeployme
 })
 
 // Copy from private docker registry to ECR.
-// The format of secret in aws secrets manager must be plain text! e.g. <username>:<password>
+// The format of secret in aws secrets manager must be either:
+// - plain text in format <username>:<password>
+// - json in format {"username":"<username>","password":"<password>"}
 // Copy from private docker registry to ECR.
-// The format of secret in aws secrets manager must be plain text! e.g. <username>:<password>
+// The format of secret in aws secrets manager must be either:
+// - plain text in format <username>:<password>
+// - json in format {"username":"<username>","password":"<password>"}
 ecrdeploy.NewECRDeployment(this, jsii.String("DeployDockerImage3"), &ECRDeploymentProps{
 	Src: ecrdeploy.NewDockerImageName(jsii.String("javacs3/nginx:latest"), jsii.String("username:password")),
 	// src: new ecrdeploy.DockerImageName('javacs3/nginx:latest', 'aws-secrets-manager-secret-name'),
