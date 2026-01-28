@@ -10,6 +10,21 @@ type ECRDeploymentProps struct {
 	Dest IImageName `field:"required" json:"dest" yaml:"dest"`
 	// The source of the docker image.
 	Src IImageName `field:"required" json:"src" yaml:"src"`
+	// Tags to apply to individual architecture-specific images when copyImageIndex is true.
+	//
+	// Can only be specified when copyImageIndex is true. Maps architecture names to
+	// their respective tags. This makes individual architectures discoverable
+	// by human-readable tags in addition to the image index tag.
+	//
+	// For example, { 'arm64': 'image-arm64', 'amd64': 'image-amd64' }.
+	ArchImageTags *map[string]*string `field:"optional" json:"archImageTags" yaml:"archImageTags"`
+	// Whether to copy a source docker image index (multi-arch manifest) to the destination.
+	//
+	// When true, copies the image index and all underlying architecture-specific
+	// images in a single operation.
+	// Default: False.
+	//
+	CopyImageIndex *bool `field:"optional" json:"copyImageIndex" yaml:"copyImageIndex"`
 	// The image architecture to be copied.
 	//
 	// The 'amd64' architecture will be copied by default. Specify the
