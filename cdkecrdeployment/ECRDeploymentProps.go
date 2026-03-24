@@ -42,6 +42,10 @@ type ECRDeploymentProps struct {
 	// Default: - 512.
 	//
 	MemoryLimit *float64 `field:"optional" json:"memoryLimit" yaml:"memoryLimit"`
+	// Retry configuration to apply to when copying images such as the number of retry attemtps, the base amount of delay (in seconds) between each retry, and the max amount of delay (in seconds) between each retry.
+	//
+	// For example, { 'numAttempts': 3, 'baseDelay': 1, 'maxDelay': 5 }.
+	RetryConfigs *map[string]*float64 `field:"optional" json:"retryConfigs" yaml:"retryConfigs"`
 	// Execution role associated with this function.
 	// Default: - A role is automatically created.
 	//
