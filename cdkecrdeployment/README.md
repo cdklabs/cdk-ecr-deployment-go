@@ -77,6 +77,22 @@ ecrdeploy.NewECRDeployment(this, jsii.String("DeployDockerImage4"), &ECRDeployme
 		"arm64": jsii.String("my-nginx-arm64"),
 	},
 })
+
+// Copy image to a public ECR registry.
+// The required ecr-public and sts permissions are automatically attached
+// when the destination is a public.ecr.aws URI.
+// Copy image to a public ECR registry.
+// The required ecr-public and sts permissions are automatically attached
+// when the destination is a public.ecr.aws URI.
+ecrdeploy.NewECRDeployment(this, jsii.String("DeployDockerImage5"), &ECRDeploymentProps{
+	Src: ecrdeploy.NewDockerImageName(fmt.Sprintf("%v.dkr.ecr.us-west-2.amazonaws.com/my-nginx:latest", cdk.Aws_ACCOUNT_ID())),
+	Dest: ecrdeploy.NewDockerImageName(jsii.String("public.ecr.aws/your-alias/your-repo:latest")),
+	CopyImageIndex: jsii.Boolean(true),
+	ArchImageTags: map[string]*string{
+		"amd64": jsii.String("latest-amd64"),
+		"arm64": jsii.String("latest-arm64"),
+	},
+})
 ```
 
 ## Sample: [test/example.ecr-deployment.ts](./test/example.ecr-deployment.ts)
