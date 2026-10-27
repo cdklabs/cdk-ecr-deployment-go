@@ -3,7 +3,7 @@ module github.com/cdklabs/cdk-ecr-deployment-go/cdkecrdeployment/v4
 go 1.26
 
 require (
-	github.com/aws/jsii-runtime-go v1.141.0
+	github.com/aws/jsii-runtime-go v1.142.0
 	github.com/aws/aws-cdk-go/awscdk/v2 v2.261.0
 	github.com/aws/constructs-go/constructs/v10 v10.5.1
 	github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2 v2.2.282 // indirect
