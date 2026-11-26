@@ -1,6 +1,7 @@
 package cdkecrdeployment
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
@@ -58,6 +59,17 @@ type ECRDeploymentProps struct {
 	// group will be created for this function.
 	//
 	SecurityGroups *[]awsec2.SecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The maximum time CloudFormation waits for the custom resource to respond before failing the operation.
+	//
+	// The copy Lambda times out after 15 minutes. If it never responds (for
+	// example, it times out or can't reach CloudFormation), CloudFormation would
+	// otherwise wait its own default of 1 hour before failing. The default, a
+	// little above the Lambda timeout, makes such deployments fail fast.
+	//
+	// Must be between 1 second and 1 hour.
+	// Default: Duration.minutes(17)
+	//
+	ServiceTimeout awscdk.Duration `field:"optional" json:"serviceTimeout" yaml:"serviceTimeout"`
 	// The VPC network to place the deployment lambda handler in.
 	// Default: - None.
 	//
